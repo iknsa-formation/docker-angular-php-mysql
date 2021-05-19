@@ -12,7 +12,7 @@ composer-compose up -d --build
 
 127.0.0.1   itech.docker.local
 
-## Go to to it
+## Go to test it
 
 http://itech.docker.local
 

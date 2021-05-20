@@ -18,6 +18,27 @@ services:
       - ./api:/var/www/api
       - .docker/apache/conf/site.conf:/etc/apache2/sites-enabled/site.conf
     ports:
-      - 80:80
+      - 81:80
     links:
       - api
+
+  front:
+    container_name: itech_front
+    build:
+      context: .
+      dockerfile: .docker/front/Dockerfile
+    volumes:
+      - ./front:/home/node/app
+    ports:
+      - 4200:4200
+
+  nginx:
+    container_name: itech_nginx
+    build:
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
+    volumes:
+      - ./front/dist/public:/usr/share/nginx/html
+    ports:
+      - 80:80
+      - 443:443

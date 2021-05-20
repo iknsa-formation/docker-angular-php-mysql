@@ -13,10 +13,14 @@ RUN pecl install apcu \
 RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
    mv composer.phar /usr/local/bin/composer
 
+COPY ../../api /var/www/api
+RUN chmod -R 777 /var/www/api/var/cache
+
 WORKDIR /var/www/api
 
 COPY ../../api/composer.json .
 
+RUN composer install
+
 EXPOSE 9000
 CMD ["php-fpm"]
-CMD ["composer", "install"]

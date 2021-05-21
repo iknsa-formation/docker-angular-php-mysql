@@ -1,4 +1,4 @@
-FROM node:14.16.1-alpine
+FROM node:14.16
 
 WORKDIR /home/node/app
 
@@ -6,4 +6,6 @@ RUN npm install -g @angular/cli
 
 COPY ../../front/package.json .
 
-CMD npm install && ng build && ng serve
+RUN npm install && ng build && ng serve
+
+CMD ["node"]

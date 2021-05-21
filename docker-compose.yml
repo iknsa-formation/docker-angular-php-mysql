@@ -39,6 +39,7 @@ services:
       dockerfile: .docker/nginx/Dockerfile
     volumes:
       - ./front/dist/public:/usr/share/nginx/html
+      - .docker/nginx/my.conf:/etc/nginx/nginx.conf
     ports:
       - 80:80
       - 443:443

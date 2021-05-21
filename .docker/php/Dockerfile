@@ -20,7 +20,5 @@ WORKDIR /var/www/api
 
 COPY ../../api/composer.json .
 
-RUN composer install
-
 EXPOSE 9000
 CMD ["php-fpm"]

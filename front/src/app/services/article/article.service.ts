@@ -6,7 +6,7 @@ import { HttpClient} from "@angular/common/http";
 })
 export class ArticleService {
 
-  private barUrl = 'https://localhost:4321';
+  private barUrl = 'http://localhost:81';
 
   constructor(private http: HttpClient) { }
 
